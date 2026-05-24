@@ -2,7 +2,7 @@ package com.example.HospitalManagement.controller;
 
 import com.example.HospitalManagement.model.*;
 import com.example.HospitalManagement.service.*;
-//import com.example.HospitalManagement.service.PaitentService;
+//change 2
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.InputStreamResource;
