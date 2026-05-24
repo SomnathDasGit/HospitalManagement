@@ -1,0 +1,191 @@
+/* General Page Styling */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to right, #e6f2ff, #ffffff);
+}
+
+/* Header Section */
+.header {
+    background-color: #005b96;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.header p {
+    margin: 5px 0 0;
+    font-size: 14px;
+}
+
+/* Form Container */
+.form-container {
+    width: 40%;
+    margin: 40px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 91, 150, 0.2);
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #005b96;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Inputs & Textarea */
+input[type="text"],
+input[type="date"],
+input[type="tel"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: 0.3s;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #005b96;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 91, 150, 0.3);
+}
+
+/* Button Styling */
+.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #005b96;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #003f6b;
+}
+
+
+.error-message {
+    color: red;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+.success-message {
+    color: green;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+/* Centered heading styling */
+.dashboard-header {
+    text-align: center;       /* Center the heading and paragraph */
+    margin-bottom: 30px;      /* Space between heading and menu */
+}
+
+.dashboard-header h1 {
+    font-size: 32px;
+    margin: 0;
+    font-weight: 700;
+    color: #005b96;
+}
+
+.dashboard-header p {
+    font-size: 18px;
+    margin-top: 8px;
+    color: #333;
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .form-container {
+        width: 80%;
+
+
+    }
+}
+
+/* Table styling */
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.results-table th,
+.results-table td {
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.results-table th {
+    background-color: #005b96;
+    color: #fff;
+    font-weight: 600;
+}
+
+.results-table tr:nth-child(even) {
+    background-color: #f9fafd;
+}
+
+.results-table tr:hover {
+    background-color: #e6f2ff;
+}
+
+/* Responsive scroll for wide tables on small devices */
+@media (max-width: 768px) {
+    .form-container {
+        width: 90%;
+        padding: 20px;
+    }
+    .results-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+/* Button fixes */
+.btn {
+    background-color: #005b96;
+    color: white;
+    border-radius: 6px;
+    padding: 12px 0;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.btn:hover {
+    background-color: #003f6b;
+}

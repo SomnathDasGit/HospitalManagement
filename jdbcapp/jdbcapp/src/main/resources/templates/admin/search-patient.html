@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Patient</title>
+    <!-- Link your CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="header">
+    <h1>Hospital Management System</h1>
+
+</div>
+<!-- Header Section -->
+<div class="header">
+    <h1>Search Patients</h1>
+    <p>Search by First Name, Last Name, or Unique ID</p>
+</div>
+
+<!-- Form Container -->
+<div class="form-container">
+
+
+    <div th:if="${successMessage}"
+         style="color: green; font-weight: bold; margin-bottom: 15px;">
+        <p th:text="${successMessage}"></p>
+    </div>
+
+
+    <!-- Search Form -->
+    <form th:action="@{/admin/search-patient}" method="get">
+        <div>
+            <label>First Name:</label>
+            <input type="text" name="firstName" th:value="${firstName}" placeholder="Enter First Name">
+        </div>
+        <div>
+            <label>Last Name:</label>
+            <input type="text" name="lastName" th:value="${lastName}" placeholder="Enter Last Name">
+        </div>
+        <div>
+            <label>Unique ID:</label>
+            <input type="text" name="uniqueId" th:value="${uniqueId}" placeholder="Enter Unique ID">
+        </div>
+        <button type="submit">Search</button>
+    </form>
+
+
+    <hr>
+    <br>
+    </br>
+    <!-- Search Results
+    <h3>Search Results</h3>
+    <div th:if="${patients != null}">
+
+        <div th:if="${searched and #lists.isEmpty(patients)}">
+            <p class="error-message">No patients found.</p>
+
+        </div>
+ -->
+
+    <div th:if="${errorMessage}" style="color:red; font-weight:bold;">
+        <p th:text="${errorMessage}"></p>
+    </div>
+
+
+        <table th:if="${!#lists.isEmpty(patients)}" border="1"  class="results-table" >
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Middle</th>
+                <th>Last Name</th>
+                <th>DOB</th>
+                <th>Address</th>
+                <th>State</th>
+                <th>Country</th>
+                <th>Mobile Number</th>
+                <th>Relative Name</th>
+                <th>Relative Mobile</th>
+                <th>Illness Details</th>
+                <th>Requirement</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="patient : ${patients}">
+                <td th:text="${patient.id}"></td>
+                <td th:text="${patient.firstName}"></td>
+                <td th:text="${patient.middleName}"></td>
+                <td th:text="${patient.lastName}"></td>
+                <td th:text="${patient.dob}"></td>
+                <td th:text="${patient.address}"></td>
+                <td th:text="${patient.state}"></td>
+                <td th:text="${patient.country}"></td>
+                <td th:text="${patient.mobileNumber}"></td>
+                <td th:text="${patient.relativeName}"></td>
+                <td th:text="${patient.relativeMobile}"></td>
+                <td th:text="${patient.illnessDetails}"></td>
+                <td th:text="${patient.requirement}"></td>
+
+                <td>
+                    <a th:href="@{/admin/edit-patient/{id}(id=${patient.id})}">
+                        Edit
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div style="text-align:center; margin-top:30px;">
+    <a th:href="@{/admin/dashboard}" class="btn" style="width:200px; display:inline-block;">
+        Go To Dashboard
+    </a>
+</div>
+</body>
+</html>

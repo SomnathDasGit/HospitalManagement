@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book Appointment</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="dashboard-header">
+    Hospital Management System
+</div>
+
+<!-- Content Wrapper -->
+<div class="content-wrapper">
+
+    <!-- Heading -->
+    <div >
+        <h1>Book Appointment</h1>
+        <p>Select date and available time slot</p>
+    </div>
+
+    <!-- Booking Form Container -->
+    <div class="menu-container">
+
+        <form th:action="@{/admin/save-appointment}"
+              th:object="${appointment}"
+              method="post">
+
+            <!-- Hidden Doctor ID -->
+            <input type="hidden" name="doctorId"
+                   th:value="${doctor.id}" />
+
+            <label>Type Patient Id</label>
+            <input type="text" name="patientId"
+                   th:value="${patientId}" />
+
+            <div class="form-group">
+                <label>Select Date</label>
+                <input type="date"
+                       th:field="*{appointmentDate}"
+                       required />
+            </div>
+
+            <div class="form-group">
+                <label>Select Time Slot</label>
+                <select th:field="*{timeSlot}" required>
+                    <option value="">-- Select Time Slot --</option>
+                    <option value="10:00 AM - 10:30 AM">
+                        10:00 AM - 10:30 AM
+                    </option>
+                    <option value="10:30 AM - 11:00 AM">
+                        10:30 AM - 11:00 AM
+                    </option>
+                    <option value="11:00 AM - 11:30 AM">
+                        11:00 AM - 11:30 AM
+                    </option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn">
+                Confirm Booking
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- Logout -->
+    <div style="text-align:center; margin-top:30px;">
+        <a th:href="@{/logout}" class="btn"
+           style="width:200px; display:inline-block;">
+            Logout
+        </a>
+    </div>
+
+</div>
+<div style="text-align:center; margin-top:30px;">
+    <a th:href="@{/admin/dashboard}" class="btn" style="width:200px; display:inline-block;">
+        Go To Dashboard
+    </a>
+</div>
+</body>
+</html>

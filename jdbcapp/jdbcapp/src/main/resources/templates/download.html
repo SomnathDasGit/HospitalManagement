@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Report</title>
+</head>
+<body>
+
+<h2>Patient Report Generator</h2>
+
+<input type="email"
+       id="email"
+       placeholder="Enter email" />
+
+<button onclick="generateReport()">
+    Generate Report
+</button>
+
+<script>
+    function generateReport() {
+
+        const email =
+            document.getElementById("email").value;
+
+        if (!email) {
+            alert("Please enter email");
+            return;
+        }
+
+        fetch("http://localhost:8080/reports/generate", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                email: email
+            })
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert(data);
+        })
+        .catch(error => {
+            console.error(error);
+            alert("Error generating report");
+        });
+    }
+</script>
+
+</body>
+</html>

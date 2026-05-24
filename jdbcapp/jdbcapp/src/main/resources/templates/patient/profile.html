@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My Profile</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+        }
+
+        .container {
+            width: 60%;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .row {
+            margin-bottom: 15px;
+        }
+
+        .label {
+            font-weight: bold;
+            width: 180px;
+            display: inline-block;
+        }
+
+        .value {
+            color: #333;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 15px;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .btn-secondary {
+            background-color: gray;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h2>My Profile</h2>
+
+    <!-- If patient exists -->
+    <div th:if="${patient != null}">
+
+        <div class="row">
+            <span class="label">Id:</span>
+            <span class="value" th:text="${patient.id}"></span>
+        </div>
+
+        <div class="row">
+            <span class="label">First Name:</span>
+            <span class="value" th:text="${patient.firstName}"></span>
+        </div>
+
+        <div class="row">
+            <span class="label">Middle Name:</span>
+            <span class="value" th:text="${patient.middleName}"></span>
+        </div>
+
+        <div class="row">
+            <span class="label">Last Name:</span>
+            <span class="value" th:text="${patient.lastName}"></span>
+        </div>
+
+        <div class="row">
+            <span class="label">Date of Birth:</span>
+            <span class="value" th:text="${patient.dob}"></span>
+        </div>
+
+        <div class="row">
+            <span class="label">Mobile Number:</span>
+            <span class="value" th:text="${patient.mobileNumber}"></span>
+        </div>
+
+        <div class="row">
+            <span class="label">Relative Name:</span>
+            <span class="value" th:text="${patient.relativeName}"></span>
+        </div>
+
+        <div class="row">
+            <span class="label">Relative Mobile:</span>
+            <span class="value" th:text="${patient.relativeMobile}"></span>
+        </div>
+
+        <div class="row">
+            <span class="label">Address:</span>
+            <span class="value" th:text="${patient.address}"></span>
+        </div>
+
+        <div class="row">
+            <span class="label">State:</span>
+            <span class="value" th:text="${patient.state}"></span>
+        </div>
+
+        <div class="row">
+            <span class="label">Country:</span>
+            <span class="value" th:text="${patient.country}"></span>
+        </div>
+
+        <div class="row">
+            <span class="label">Illness Details:</span>
+            <span class="value" th:text="${patient.illnessDetails}"></span>
+        </div>
+
+        <div class="row">
+            <span class="label">Doctor's Speciality Requirement:</span>
+            <span class="value" th:text="${patient.requirement}"></span>
+        </div>
+
+        <a th:href="@{/patient/edit-details}" class="btn">Edit Profile</a>
+        <a th:href="@{/patient/dashboard}" class="btn btn-secondary">Back</a>
+
+    </div>
+
+    <!-- If patient not found -->
+    <div th:if="${patient == null}">
+        <p class="error">Patient details not found.</p>
+    </div>
+
+</div>
+
+<div style="text-align:center; margin-top:30px;">
+    <a th:href="@{/patient/dashboard}" class="btn" style="width:200px; display:inline-block;">
+        Go To Dashboard
+    </a>
+</div>
+
+</body>
+</html>

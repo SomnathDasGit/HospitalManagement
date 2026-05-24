@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Doctors</title>
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+<div class="header">
+    <h1>Hospital Management System</h1>
+
+</div>
+<div class="header">
+    <h1>Doctors</h1>
+</div>
+
+<div class="form-container">
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Qualification</th>
+            <th>Experience</th>
+            <th>Speciality</th>
+            <th>Location</th>
+
+            <th>Actions</th>
+        </tr>
+        <tr th:each="d : ${doctors}">
+
+            <td th:text="${d.id}"></td>
+            <td th:text="${d.name}"></td>
+            <td th:text="${d.qualification}"></td>
+            <td th:text="${d.experience}"></td>
+            <td th:text="${d.speciality}"></td>
+            <td th:text="${d.state}"></td>
+            <td>
+                <a th:href="@{|/admin/edit-doctor/${d.id}|}">Edit</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div style="text-align:center; margin-top:30px;">
+    <a th:href="@{/admin/dashboard}" class="btn" style="width:200px; display:inline-block;">
+        Go To Dashboard
+    </a>
+</div>
+</body>
+</html>

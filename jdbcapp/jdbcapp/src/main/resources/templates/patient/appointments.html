@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My Appointments</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="topbar">
+    Hospital Management System
+</div>
+
+<div class="content-wrapper">
+
+    <div class="dashboard-header">
+        <h1>My Appointments</h1>
+        <p>View your upcoming doctor appointments</p>
+    </div>
+
+    <div class="form-container">
+
+        <table class="results-table" th:if="${appointments}">
+
+            <thead>
+            <tr>
+                <th>Doctor's Name</th>
+
+                <th>Doctor's Speciality</th>
+                <th>Doctor's Qualification</th>
+                <th>Date</th>
+                <th>Time Slot</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="appt : ${appointments}">
+                <td th:text="${appt.doctor.name}"></td>
+                <td th:text="${appt.doctor.speciality}"></td>
+                <td th:text="${appt.doctor.qualification}"></td>
+                <td th:text="${appt.appointmentDate}"></td>
+                <td th:text="${appt.timeSlot}"></td>
+                <td th:text="${appt.status}"></td>
+            </tr>
+            </tbody>
+
+        </table>
+
+        <!-- If no appointments -->
+        <div th:if="${#lists.isEmpty(appointments)}">
+            <p style="text-align:center; font-weight:bold;">
+                No upcoming appointments found.
+            </p>
+        </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:20px;">
+        <a th:href="@{/patient/dashboard}" class="btn"
+           style="width:200px; display:inline-block;">
+            Back to Dashboard
+        </a>
+    </div>
+
+</div>
+
+
+
+</body>
+</html>

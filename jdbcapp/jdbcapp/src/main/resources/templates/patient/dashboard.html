@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Patient Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <style>
+        /* Top bar styling */
+        .topbar {
+            width: 100%;
+            background-color: #005b96;
+            color: white;
+            padding: 18px 30px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            font-size: 24px;
+            font-weight: 700;
+            user-select: none;
+            z-index: 1000;
+        }
+
+        /* Push content below fixed topbar */
+        .content-wrapper {
+            margin-top: 120px; /* Increased spacing for heading + menu */
+        }
+
+        /* Dashboard heading */
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-header h1 {
+            font-size: 32px;
+            margin: 0;
+            font-weight: 700;
+            color: #005b96;
+        }
+
+        .dashboard-header p {
+            font-size: 18px;
+            margin-top: 8px;
+            color: #333;
+        }
+
+        /* Container box styling */
+        .menu-container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 91, 150, 0.15);
+        }
+
+        /* Menu list reset */
+        .menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Menu item style */
+        .menu-list li {
+            margin-bottom: 15px;
+        }
+
+        /* Menu link buttons */
+        .menu-list a {
+            display: block;
+            text-decoration: none;
+            background-color: #005b96;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 91, 150, 0.3);
+        }
+
+        /* Hover effect */
+        .menu-list a:hover {
+            background-color: #003f6b;
+            box-shadow: 0 4px 15px rgba(0, 63, 107, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .menu-container {
+                max-width: 90%;
+                padding: 20px;
+            }
+
+            .menu-list a {
+                font-size: 16px;
+                padding: 10px 15px;
+            }
+
+            .dashboard-header h1 {
+                font-size: 24px;
+            }
+
+            .dashboard-header p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="topbar">
+    Hospital Management System
+</div>
+
+<div class="content-wrapper">
+    <!-- Centered heading -->
+    <div class="dashboard-header">
+        <h1>Patient Dashboard</h1>
+
+
+
+
+
+        <p>Manage Your Data, View Doctors, View Appointment and Check Your Report</p>
+    </div>
+
+    <div class="menu-container">
+        <ul class="menu-list">
+            <li><a th:href="@{/patient/profile}">Your Profile</a></li>
+            <li><a th:href="@{/patient/edit-details}">Edit Your Details</a></li>
+            <li><a th:href="@{/patient/reports}">View Your Reports</a></li>
+            <li><a th:href="@{/patient/find-doctor}">Search Doctor</a></li>
+            <li><a th:href="@{/patient/view-All-doctor}">View All Doctor</a></li>
+
+
+            <li><a th:href="@{/patient/appointments}">View Upcoming Appointments</a></li>
+        </ul>
+    </div>
+</div>
+
+<div style="text-align:center; margin-top:30px;">
+    <a th:href="@{/patient/dashboard}" class="btn" style="width:200px; display:inline-block;">
+        Go To Dashboard
+    </a>
+</div>
+
+<p style="text-align:center; margin-top:15px;">
+    <a th:href="@{/logout}">logout</a>
+</p>
+</body>
+</html>
+
